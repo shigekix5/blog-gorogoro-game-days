@@ -11,12 +11,18 @@
 		"check": "biome check --write src"
 	},
 	"dependencies": {
+		"@radix-ui/react-slot": "^1.1.0",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
 		"html-react-parser": "^5.1.12",
 		"jsdom": "^25.0.0",
+		"lucide-react": "^0.447.0",
 		"microcms-js-sdk": "^3.1.2",
 		"next": "14.2.5",
 		"react": "^18",
-		"react-dom": "^18"
+		"react-dom": "^18",
+		"tailwind-merge": "^2.5.3",
+		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
