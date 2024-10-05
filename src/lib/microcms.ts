@@ -14,6 +14,14 @@ export type Blog = {
 	eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 
+export type About = {
+	id: string;
+	content: string;
+	profileImage: MicroCMSImage;
+	author: string;
+	profile: string;
+} & MicroCMSDate;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
 	throw new Error('MICROCMS_SERVICE_DOMAIN is required');
 }
@@ -27,6 +35,15 @@ export const client = createClient({
 	serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
 	apiKey: process.env.MICROCMS_API_KEY,
 });
+
+// Aboutページデータ
+export const getAbout = async (queries?: MicroCMSQueries) => {
+	const aboutData = await client.getList<About>({
+		endpoint: 'about',
+		queries,
+	});
+	return aboutData;
+};
 
 // ブログ一覧を取得
 export const getList = async (queries?: MicroCMSQueries) => {

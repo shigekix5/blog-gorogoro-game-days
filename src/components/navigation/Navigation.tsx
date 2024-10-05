@@ -13,14 +13,6 @@ const items = [
 		title: 'ABOUT',
 		href: '/about',
 	},
-	{
-		title: 'RANKING',
-		href: '/ranking',
-	},
-	{
-		title: 'BLOG',
-		href: '/blog',
-	},
 ];
 
 // ナビゲーション
@@ -38,9 +30,9 @@ const Navigation = () => {
 			<div className="bg-gray-100">
 				<div className="mx-auto max-w-screen-lg px-2">
 					<div className="flex items-center justify-between text-sm font-bold">
-						{items.map((item, index) => (
+						{items.map((item) => (
 							<Link
-								key={index}
+								key={item.href}
 								href={item.href}
 								className={cn(
 									'border-r border-l border-white py-3 text-center w-full hover:bg-black hover:text-white',

@@ -1,4 +1,3 @@
-import Navigation from '@/components/navigation/Navigation';
 import { JSDOM } from 'jsdom';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,11 +24,11 @@ export default async function StaticPage() {
 
 	return (
 		<div>
+			{/*
 			<h1 className="mt-4 text-6xl font-bold leading-tight text-black sm:text-7xl">
 				Gorogoro Game Days
 			</h1>
-			<Navigation />
-
+			*/}
 			<section className="dark:bg-gray-100 dark:text-gray-800">
 				<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
 					<Link href={`/blog/${firstContents?.id}`}>
