@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  p {
+    /* ブログのテキストの改行用 */
+    min-height: 1em;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

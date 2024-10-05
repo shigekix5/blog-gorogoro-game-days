@@ -21,14 +21,14 @@ const Navigation = () => {
 
 	return (
 		<header>
-			<div className="mx-auto max-w-screen-lg px-2 py-8">
-				<Link href="/" className="font-bold text-xl">
+			<div className="mx-auto max-w-screen-lg py-8">
+				<Link href="/" className="font-bold text-5xl">
 					Gorogoro Game Days
 				</Link>
 			</div>
 
 			<div className="bg-gray-100">
-				<div className="mx-auto max-w-screen-lg px-2">
+				<div className="mx-auto max-w-screen-lg">
 					<div className="flex items-center justify-between text-sm font-bold">
 						{items.map((item) => (
 							<Link
