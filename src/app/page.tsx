@@ -1,7 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getList } from "../lib/microcms";
-import { JSDOM } from "jsdom";
+import Navigation from '@/components/navigation/Navigation';
+import { JSDOM } from 'jsdom';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getList } from '../lib/microcms';
 
 // 開発環境の場合はキャッシュなし
 export const revalidate = process.env.development ? 0 : false;
@@ -27,6 +28,7 @@ export default async function StaticPage() {
 			<h1 className="mt-4 text-6xl font-bold leading-tight text-black sm:text-7xl">
 				Gorogoro Game Days
 			</h1>
+			<Navigation />
 
 			<section className="dark:bg-gray-100 dark:text-gray-800">
 				<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
@@ -34,8 +36,8 @@ export default async function StaticPage() {
 						{/* 1つめの記事 */}
 						<div className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
 							<Image
-								alt={firstContents?.title || ""}
-								src={firstContents?.thumbnail?.url || ""}
+								alt={firstContents?.title || ''}
+								src={firstContents?.thumbnail?.url || ''}
 								height={500}
 								width={500}
 								className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500"
@@ -60,8 +62,8 @@ export default async function StaticPage() {
 										<Link href={`/blog/${post.id}`}>
 											<div className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
 												<Image
-													alt={firstContents?.title || ""}
-													src={firstContents?.thumbnail?.url || ""}
+													alt={firstContents?.title || ''}
+													src={firstContents?.thumbnail?.url || ''}
 													height={500}
 													width={500}
 													className="object-cover w-full rounded h-44 dark:bg-gray-500"
