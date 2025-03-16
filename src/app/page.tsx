@@ -35,7 +35,7 @@ export default async function StaticPage() {
 				<div className="container py-6 mx-auto max-w-screen-lg space-y-6 sm:space-y-12">
 					<Link href={`/blog/${firstContents?.id}`}>
 						{/* 1つめの記事 */}
-						<div className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-50">
+						<div className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-50 transition-all duration-300 hover:scale-95">
 							<Image
 								alt={firstContents?.title || ''}
 								src={firstContents?.thumbnail?.url || ''}
@@ -66,7 +66,7 @@ export default async function StaticPage() {
 								return (
 									<li key={post.id}>
 										<Link href={`/blog/${post.id}`}>
-											<div className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-50">
+											<div className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-50 transition-all duration-300 hover:scale-95">
 												<Image
 													alt={firstContents?.title || ''}
 													src={firstContents?.thumbnail?.url || ''}
