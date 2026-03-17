@@ -30,6 +30,9 @@ if (!process.env.MICROCMS_API_KEY) {
 	throw new Error('MICROCMS_API_KEY is required');
 }
 
+// 開発環境の場合はキャッシュなし
+const revalidate = process.env.development ? 0 : false;
+
 // API取得用のクライアントを作成
 export const client = createClient({
 	serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
@@ -41,6 +44,11 @@ export const getAbout = async (queries?: MicroCMSQueries) => {
 	const aboutData = await client.getList<About>({
 		endpoint: 'about',
 		queries,
+		customRequestInit: {
+			next: {
+				revalidate: revalidate,
+			},
+		},
 	});
 	return aboutData;
 };
@@ -50,6 +58,11 @@ export const getList = async (queries?: MicroCMSQueries) => {
 	const listData = await client.getList<Blog>({
 		endpoint: 'blogs',
 		queries,
+		customRequestInit: {
+			next: {
+				revalidate: revalidate,
+			},
+		},
 	});
 
 	// データの取得が目視しやすいよう明示的に遅延効果を追加
@@ -67,6 +80,11 @@ export const getDetail = async (
 		endpoint: 'blogs',
 		contentId,
 		queries,
+		customRequestInit: {
+			next: {
+				revalidate: revalidate,
+			},
+		},
 	});
 
 	// データの取得が目視しやすいよう明示的に遅延効果を追加

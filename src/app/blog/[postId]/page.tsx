@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getDetail, getList } from '../../../lib/microcms';
 
-// 開発環境の場合はキャッシュなし
-export const revalidate = process.env.development ? 0 : false;
+type PageParams = {
+	params: Promise<{ postId: string }>;
+};
 
 export async function generateStaticParams() {
 	const { contents } = await getList();
@@ -19,11 +20,8 @@ export async function generateStaticParams() {
 	return [...paths];
 }
 
-export default async function StaticDetailPage({
-	params: { postId },
-}: {
-	params: { postId: string };
-}) {
+export default async function StaticDetailPage({ params }: PageParams) {
+	const { postId } = await params;
 	const post = await getDetail(postId);
 
 	if (!post) {

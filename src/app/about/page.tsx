@@ -4,8 +4,6 @@ import LayoutWithSidebar from '@/components/layout/LayoutWithSidebar';
 import { getAbout } from '@/lib/microcms';
 import { Suspense } from 'react';
 
-export const revalidate = process.env.development ? 0 : false;
-
 // アバウトページ
 const AboutPage = async () => {
 	const about = await getAbout({

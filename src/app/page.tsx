@@ -5,9 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getList } from '../lib/microcms';
 
-// 開発環境の場合はキャッシュなし
-export const revalidate = process.env.development ? 0 : false;
-
 export default async function StaticPage() {
 	const { contents } = await getList();
 
