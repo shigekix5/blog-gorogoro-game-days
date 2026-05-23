@@ -12,10 +12,27 @@ export default async function StaticPage() {
 		return <h1>No contents</h1>;
 	}
 
+	const truncateByWord = (text: string, maxLength: number) => {
+		// 日本語（ja）かつ単語単位（word）で区切るセグメンターを作成
+		const segmenter = new Intl.Segmenter('ja', { granularity: 'word' });
+		const segments = segmenter.segment(text);
+		let result = '';
+		for (const { segment } of segments) {
+			// 次の単語を足すと指定文字数を超える場合はここで終了
+			if (result.length + segment.length > maxLength && result.length > 0) {
+				return `${result}...`;
+			}
+			result += segment;
+		}
+		return result;
+	};
+
 	// HTMLからテキストのみを取得
 	const getTextFromHTML = (htmlText: string) => {
 		const root = new JSDOM(htmlText);
-		return root.window.document.getElementsByTagName('html')[0].textContent;
+		const text =
+			root.window.document.getElementsByTagName('html')[0].textContent;
+		return truncateByWord(text, 100);
 	};
 
 	// 最新のコンテンツを1つ抜き出す
@@ -46,7 +63,7 @@ export default async function StaticPage() {
 										'yyy/MM/dd',
 									)}
 								</span>
-								<div className="break-words">
+								<div className="break-words blog-contents">
 									{getTextFromHTML(firstContents?.content || '')}
 								</div>
 							</div>

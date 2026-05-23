@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  p {
+  .blog-contents p {
     /* ブログのテキストの改行用 */
     min-height: 1em;
+    margin-bottom: 1em;
+  }
+ .blog-contents a {
+    word-break: break-all;
   }
 }
 
