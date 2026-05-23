@@ -45,7 +45,7 @@ export default async function StaticDetailPage({ params }: PageParams) {
 					) : (
 						''
 					)}
-					<div className="w-full p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-screen-lg sm:px-10 sm:mx-12 lg:rounded-md bg-gray-50 relative">
+					<div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-screen-lg sm:px-10 sm:mx-12 lg:rounded-md bg-gray-50 relative">
 						<div className="space-y-2">
 							<div className="inline-block text-2xl font-semibold sm:text-3xl">
 								{post.title}
