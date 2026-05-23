@@ -30,7 +30,7 @@ export default async function StaticDetailPage({ params }: PageParams) {
 
 	return (
 		<>
-			<div className="p-5 mx-auto sm:p-10 md:p-16 bg-gray-100 text-gray-800">
+			<div className="bg-gray-100 text-gray-800">
 				<div className="flex flex-col mx-auto overflow-hidden rounded">
 					{post.thumbnail ? (
 						<div className="w-full h-60 sm:h-96 bg-gray-500 relative">
